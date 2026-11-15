@@ -32,15 +32,14 @@ h2::selection {
   color: #000000;
 }
 
+.btn-primary:hover {
+  background: var(--secondary-color);
+}
+
 .btn-secondary {
   margin: 5px 0;
   background-color: var(--bg-secondary);
   color: var(--bg-primary);
-}
-
-/* add hover to resume button */
-.btn-primary:hover {
-  background: var(--secondary-color);
 }
 
 /* Dark mode toggle */
@@ -60,18 +59,12 @@ h2::selection {
   width: 30px;
 }
 
-#switch+.toggle-icons .sun {
-  display: none;
-}
-
-#switch+.toggle-icons .moon {
-  display: flex;
-}
-
+#switch+.toggle-icons .sun,
 #switch:checked+.toggle-icons .moon {
   display: none;
 }
 
+#switch+.toggle-icons .moon,
 #switch:checked+.toggle-icons .sun {
   display: flex;
 }
@@ -110,7 +103,7 @@ h2::selection {
 /* Project cards */
 .card {
   padding: 1rem;
-  background: var(--card-background);
+  background-color: var(--card-background);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -121,7 +114,7 @@ h2::selection {
 }
 
 .card a {
-  color: #ffffff;
+  color: inherit;
   transition: 0.25s ease-in-out;
   font-size: 1.1rem;
   margin-right: 0.3rem;
@@ -146,33 +139,26 @@ h2::selection {
 }
 
 /* Project Images */
-
-/* project 1 */
 .card:nth-child(1) {
   background-image: url(../assets/project/project-one.png);
 }
 
-/* Project 2 */
 .card:nth-child(2) {
   background-image: url(../assets/project/project-two.png);
 }
 
-/* Project 3 */
 .card:nth-child(3) {
   background-image: url(../assets/project/project-three.png);
 }
 
-/* Project 4 */
 .card:nth-child(4) {
   background-image: url(../assets/project/project-four.png);
 }
 
-/* Project 5 */
 .card:nth-child(5) {
   background-image: url(../assets/project/project-five.png);
 }
 
-/* Project 6 */
 .card:nth-child(6) {
   background-image: url(../assets/project/project-six.png);
 }

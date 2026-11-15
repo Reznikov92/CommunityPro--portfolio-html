@@ -1,67 +1,43 @@
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
+const navLinks = document.querySelectorAll(".nav-link");
+const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
 
-hamburger.addEventListener("click", mobileMenu);
-
+// Toggle mobile menu
 function mobileMenu() {
   hamburger.classList.toggle("active");
   navMenu.classList.toggle("active");
 }
-
-// Close navbar when link is clicked
-const navLink = document.querySelectorAll(".nav-link");
-
-navLink.forEach((n) => n.addEventListener("click", closeMenu));
 
 function closeMenu() {
   hamburger.classList.remove("active");
   navMenu.classList.remove("active");
 }
 
-// Event Listeners: Handling toggle event
-const toggleSwitch = document.querySelector(
-  '.theme-switch input[type="checkbox"]'
-);
+hamburger.addEventListener("click", mobileMenu);
+navLinks.forEach((link) => link.addEventListener("click", closeMenu));
 
-function switchTheme(e) {
-  if (e.target.checked) {
-    document.documentElement.setAttribute("data-theme", "dark");
-  } else {
-    document.documentElement.setAttribute("data-theme", "light");
-  }
+// Apply and store color theme
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
 }
 
-toggleSwitch.addEventListener("change", switchTheme, false);
-
-//  Store color theme for future visits
-
 function switchTheme(e) {
-  if (e.target.checked) {
-    document.documentElement.setAttribute("data-theme", "dark");
-    localStorage.setItem("theme", "dark"); //add this
-  } else {
-    document.documentElement.setAttribute("data-theme", "light");
-    localStorage.setItem("theme", "light"); //add this
-  }
+  applyTheme(e.target.checked ? "dark" : "light");
 }
 
-// Save user preference on load
+toggleSwitch.addEventListener("change", switchTheme);
 
-const currentTheme = localStorage.getItem("theme")
-  ? localStorage.getItem("theme")
-  : null;
-
+// Load saved user theme preference
+const currentTheme = localStorage.getItem("theme");
 if (currentTheme) {
   document.documentElement.setAttribute("data-theme", currentTheme);
-
-  if (currentTheme === "dark") {
-    toggleSwitch.checked = true;
-  }
+  toggleSwitch.checked = currentTheme === "dark";
 }
 
-//Adding date
-
-let myDate = document.querySelector("#datee");
-
-const yes = new Date().getFullYear();
-myDate.innerHTML = yes;
+// Set current year in footer
+const myDate = document.querySelector("#datee");
+if (myDate) {
+  myDate.textContent = new Date().getFullYear();
+}
