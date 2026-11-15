@@ -263,19 +263,23 @@ body {
   .navbar .nav-menu {
     position: fixed;
     right: -100vw;
-    top: 4.5rem;
+    top: 5rem;
     flex-direction: column;
-    width: calc(80% - 10px);
-    transition: 0.3s;
-    box-shadow: var(--shadow);
-    padding: 2rem;
-    border-radius: 5px;
-    align-items: flex-start;
+    width: calc(85% - 10px);
+    max-width: 320px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--card-background);
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    align-items: center;
+    text-align: center;
+    gap: 0.8rem;
   }
 
   .navbar .btn {
     margin: 0;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
 
   .nav-menu.active {
@@ -283,19 +287,27 @@ body {
   }
 
   .nav-menu .nav-link {
-    font-size: 0.9rem;
-    margin: 0 0.2rem;
+    display: block;
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    margin: 0;
+    width: 100%;
   }
 
   .nav-menu li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     width: 100%;
   }
 
   .nav-menu .btn {
     width: 100%;
     text-align: center;
+    padding: 0.8rem 1rem;
     margin-top: 0.5rem;
+  }
+
+  .theme-switch {
+    margin-top: 0.8rem;
   }
 
   .hamburger {
