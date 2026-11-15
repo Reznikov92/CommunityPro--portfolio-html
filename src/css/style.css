@@ -332,3 +332,19 @@ body {
     width: 80%;
   }
 }
+
+img,
+svg,
+i,
+button,
+a,
+.btn,
+.hamburger {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+img {
+  -webkit-user-drag: none;
+}
