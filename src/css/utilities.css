@@ -127,15 +127,21 @@ h2::selection {
   margin-right: 0.3rem;
 }
 
-.card a:hover {
+.card a:hover,
+.card a:focus-visible {
   color: var(--primary-color);
+  outline: 2px solid var(--primary-color);
+  outline-offset: 3px;
+  border-radius: 3px;
 }
 
-.card:hover {
-  box-shadow: inset 0 100px 1000px 10px rgba(0, 0, 0, 0.8);
+.card:hover,
+.card:focus-within {
+  box-shadow: inset 0 100px 1000px 10px rgba(0, 0, 0, 0.85);
 }
 
-.card:hover .project-info {
+.card:hover .project-info,
+.card:focus-within .project-info {
   opacity: 1;
 }
 
